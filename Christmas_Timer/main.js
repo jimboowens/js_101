@@ -1,4 +1,13 @@
 // console.log("sanity check");
+title = "Countdown timer ";
+position = 0;
+function scrolltitle() {
+   document.title = title.substring(position, title.length) + title.substring(0, position);
+   position++;
+   if (position > title.length) position = 0;
+   titleScroll = window.setTimeout(scrolltitle,110);
+}
+scrolltitle();
 var button = document.getElementsByClassName('button')[0]
 function updateTimer(){
     // new Date() will create a new Date object with the current time
