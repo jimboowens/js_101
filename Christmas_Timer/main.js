@@ -48,11 +48,13 @@ function newDate(){
     var updatedDate = new Date(prompt("What new date would you like?"))
     console.log(updatedDate)
     endDate = updatedDate
+    timeStamp = updatedDate.getTime()
+    console.log(timeStamp)
 }
 button.addEventListener('click', newDate)
 var endDate = new Date("December 25, 2018");
 console.log(endDate)
-var timeStamp = endDate.getTime()
+timeStamp = endDate.getTime()
 console.log(timeStamp);
 
 // console.log(updatedDate)
