@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dragon-Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <link rel="shortcut icon" href="dragon-assets/favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="darkly.css"/> -->
+    <script type="text/javascript">
+    
+    console.log("sanity check")
+    // document.getElementById('roll-button').addEventListener('click',function(){
+    // })
+    function roll(){
+        // console.log(window)
+        // EVERYTHING belongs to the window. You don't ever have to use window, because 
+        // it's already assumed.
+        // window.alert("I'm an alert box!")
+        // this is the same as...
+        // alert("I'm an alert box!")
+        // console.log(document)
+        // .log on an html "thing" will show you the html, but
+        // .dir on an html "thing" will show you the JS object
+        // console.dir(document)
+        var rand1 = Math.ceil(Math.random()*6)
+        var rand2 = Math.ceil(Math.random()*6)
+        console.log(rand1)
+        console.log(rand2)
+        var dice = document.getElementById('dice')
+        console.dir(dice)
+        var die1 = dice.children[0]
+        var die2 = dice.children[1]
+        die1.src = `dragon-assets/d${rand1}.gif`
+        die2.src = `dragon-assets/d${rand2}.gif`
+        var dragonDiv = document.getElementById('dragon')
+        if (rand1+rand2>7){
+            
+            dragonDiv.children[0].src = "https://www.worldanvil.com/uploads/images/79206006de3cd03c3cd842609950db55.jpg"
+        } else{
+            
+            dragonDiv.children[0].src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVbSXBvqlII4BMqaoW2ub30osCuEag35cSo8CLb1VQfqaQ1GsZWA"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="gameWrapper">
+        <div id="dragon">
+                <img src="dragon-assets/dragon.png" height = "200px"/>
+        </div>
+        <div d="message">
+            <p>You have encountered the terrble dragon. Roll to fight. Anything above 
+                a 7 will defeat it; seven or lower means you're toast...</p>
+        </div>
+        <div id ="dice">
+            <img src="./dragon-assets/d1.gif"/>
+            <img src="./dragon-assets/d1.gif"/> 
+        </div>
+        <div id="roll">
+            <!-- this is called the event loop, and this is how html is built to work. the onclick 
+            is written in java, not html or css -->
+            <button id="roll-button" onclick="roll()">Fight!</button>
+
+        </div>
+
+    </div>
+</body>
+</html>
