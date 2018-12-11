@@ -1,0 +1,26 @@
+body{
+    background-color: #bfb;
+}
+
+#board{
+    max-width: 640px;
+    min-width: 320px;
+    margin: auto;
+}
+
+.square{
+    background-color: #fff;
+    border: 2px solid #0ff;
+    width: 200px;   
+    height: 200px;
+    outline: none; /* removes the blue line from clicking our squares */
+    font-size: 100px;
+    color: pink;
+}
+
+.square:hover{
+    background-color: rgba(34, 255, 0, 0.345);
+}
+.winning-square{
+    background-color: lightseagreen;
+}
