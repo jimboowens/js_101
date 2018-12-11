@@ -36,26 +36,17 @@ if (opponent == 'yes'){
         squares[i].addEventListener(`click`,function(event){
             if (gameOn ==true){
                 if (this.innerHTML === `-`){
-                    // if (whoseTurn % 2 ==0){
-                    // this.innerHTML = `O`
-                    // document.getElementById('message').innerHTML = "Now it's X's Turn"
-                    // player1Squares.push(this.id)
-                    // checkWin(player1Squares, whoseTurn)
-                    // whoseTurn=1
-                    // }else{
                     this.innerHTML = `X`
                     player2Squares.push(this.id)
                     checkWin(player2Squares, whoseTurn)
                     computerLogic()
-                    }
                 } else {
                     document.getElementById('message').innerHTML = "Sorry, that square is taken"  
                 }
             }
-        )
+        })
     }
-    
-}else{
+} else{
     for (let i=0;i<squares.length;i++){
         squares[i].addEventListener(`click`,function(event){
             if (gameOn ==true){
