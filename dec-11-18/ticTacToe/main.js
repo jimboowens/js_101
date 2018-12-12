@@ -1,9 +1,10 @@
 let whoseTurn = 1
-let player1Squares = []
-let player2Squares = []
+let playerOSquares = []
+let playerXSquares = []
 let decision = false
 let gameOn = true
 let opponent
+var squareCount
 const winningCombos = [
     [`A1`,`B1`,`C1`],
     [`A2`,`B2`,`C2`],
@@ -26,10 +27,31 @@ while (decision != true){
 }
 function computerLogic(){
     console.log("computerLogic")
-    if (document.getElementById(B2) === '-'){
+    if (document.getElementById('B2').innerHTML === '-'){
         document.getElementById('B2').innerHTML = 'O'
-        player1Squares.push("B2")
+        playerOSquares.push("B2")
     }
+    function checkBlock(playerSquares){
+        console.log("Trying to keep the opponent from winning..")
+        for(let i = 0; i < winningCombos.length; i++){   
+            squareCount = 0
+            for(let j = 0; j < winningCombos[i].length; j++){ 
+                const winningSquare = winningCombos[i][j];
+                if(playerSquares.includes(winningSquare)){
+                    squareCount++;
+                    console.log('squareCount is = ' + squareCount)
+                    if(squareCount === 2){
+                        console.log('making a choice to put the O in the "-"')
+                        if (document.getElementById(winningCombos[i][j]) ==='-'){
+                            console.log("input O to block")
+                            document.getElementById(winningCombos[i][j]).innerHTML = 'O'
+                        }
+                    }
+                }
+            }
+        }  
+    }
+    checkBlock(playerXSquares)
 }
 if (opponent == 'yes'){
     for (let i=0;i<squares.length;i++){
@@ -37,9 +59,11 @@ if (opponent == 'yes'){
             if (gameOn ==true){
                 if (this.innerHTML === `-`){
                     this.innerHTML = `X`
-                    player2Squares.push(this.id)
-                    checkWin(player2Squares, whoseTurn)
+                    playerXSquares.push(this.id)
+                    checkWin(playerXSquares, whoseTurn)
                     computerLogic()
+                    console.log(playerOSquares)
+                    console.log(playerXSquares)
                 } else {
                     document.getElementById('message').innerHTML = "Sorry, that square is taken"  
                 }
@@ -54,14 +78,14 @@ if (opponent == 'yes'){
                     if (whoseTurn % 2 ==0){
                     this.innerHTML = `O`
                     document.getElementById('message').innerHTML = "Now it's X's Turn"
-                    player1Squares.push(this.id)
-                    checkWin(player1Squares, whoseTurn)
+                    playerOSquares.push(this.id)
+                    checkWin(playerOSquares, whoseTurn)
                     whoseTurn=1
                     }else{
                     this.innerHTML = `X`
                     document.getElementById('message').innerHTML = "Now it's O's Turn"
-                    player2Squares.push(this.id)
-                    checkWin(player2Squares, whoseTurn)
+                    playerXSquares.push(this.id)
+                    checkWin(playerXSquares, whoseTurn)
                     whoseTurn=2
                     }
                 } else {
@@ -97,3 +121,14 @@ function endGame(winningCombo, whoWon){
         gameOn = false
     }
 }
+// while(gameOn = false){
+//     let restart = prompt(`Would you like to restart (yes or no)?`)
+//     if (restart == `yes`){
+//         let whoseTurn = 1
+//     let playerOSquares = []
+//     let playerXSquares = []
+//     let decision = false
+//     let gameOn = true
+//     let opponent = ''
+//     }
+// }
