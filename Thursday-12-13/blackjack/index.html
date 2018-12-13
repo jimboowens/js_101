@@ -21,7 +21,6 @@
     8. make a deal, hit, and stand button  -->
     <div class="body-wrapper">
         <div class='table'>
-            <div class="mt-6 player-total">0</div>
             <div class="player-cards">
                 <div class="card card-1"></div>
                 <div class="card card-2"></div>
@@ -30,7 +29,6 @@
                 <div class="card card-5"></div>
                 <div class="card card-6"></div>
             </div>
-            <div class="dealer-total">0</div>
             <div class="dealer-cards">
                 <div class="card card-1"></div>
                 <div class="card card-2"></div>
@@ -39,12 +37,14 @@
                 <div class="card card-5"></div>
                 <div class="card card-6"></div>
             </div>
-            <div class="row buttons">
+        </div>
+            <div class="d-block row buttons">
                 <button class="btn btn-primary column deal-button">Deal</button>
                 <button class="btn btn-primary column hit-button">Hit</button>
-                <button class="btn btn-primary column stand-button">Stand</button>
+                <button class="btn btn-primary column stay-button">"I'll stay..."</button>
+                <div class="d-inline-block">Player total = <span class="playerTotal">0</span></div>
+                <div class="d-inline-block">Dealer total = <span class="dealerTotal">0</span></div>
             </div>
-        </div>
     </div>
     <script src="scripts.js"></script>
 </body>
