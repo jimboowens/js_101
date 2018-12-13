@@ -1,0 +1,54 @@
+.ball{
+    height: 100px;
+    width:100px;
+    border: 2px solid red;
+    background-color:blue;
+    color:white;
+    transition: all 5s;
+    margin-bottom: 10px;
+    text-align:center;
+}
+.ball:hover{
+    border-radius: 50%;
+    background-color: red;
+    margin-left: 500px;
+    display:inline-block;
+    transform: rotate(1360deg);
+}
+.ball.ease{
+    transition: all 5s ease-in;
+}
+.ball.ease-out{
+    transition: all 5s ease-out;
+}
+.ball.what-the{
+    transition-timing-function:cubic-bezier(1,.03,0,-1.04);
+}
+.square{
+    height: 100px;
+    width:100px;
+    border: 2px solid blue;
+    background-color:red;
+    color:white;
+    transition: all 2s;
+    margin-bottom:10px;
+    text-align:center;
+}
+.square:hover{
+    background-color: blue;
+    margin-left: 500px;
+    display:inline-block;
+    /* transform: rotate(1360deg); */
+}
+.square.rotate:hover{
+    transform: rotateY(1360deg)
+    /* transform:rotateX(45deg) */
+    /* transform:rotate(45deg) */
+}
+.square.scale:hover{
+    transform:scale(1.2);
+    /* that increases it by 20%, as 100% = 1.0. So, itll be 1.2 --120% */
+}
+.square.skew:hover{
+    transform:skew(45deg);
+}
