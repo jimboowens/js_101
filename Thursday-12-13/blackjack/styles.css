@@ -21,13 +21,24 @@
     width: 100px;
 }
 
-.d-block {
+.deal{
+    transition: all 2s;
     display: inline-block;
-    position: relative;
+    position: absolute;
+    left: 280px;
+    top: 40px;
+    transform: perspective(0);
+}
+.play, .total{
+    display:none;
     left: 280px;
     top: 40px;
     transform: perspective(0);
 }
 .player-cards, .dealer-cards{
     border:5px solid #277714;
+}
+
+.button-box {
+    margin-top: -38px;
 }
